@@ -63,10 +63,15 @@ def brightness(value):
 @app.route("/led/data")
 def data():
 	global jsondata
-	jsondata['color'] = config.color_rgb
-	jsondata['temp'] = config.temperature
-	jsondata['wait'] = config.wait
-	jsondata['cpu_load'] = config.cpu_load
+	try:
+		jsondata['color'] = config.color_rgb
+		jsondata['temp'] = config.temperature
+		jsondata['wait'] = config.wait
+		jsondata['cpu_load'] = config.cpu_load
+	except:
+		for i in jsondata:
+			jsondata[i] = 0
+		
 	return jsonify(jsondata), 200
 
 @app.route("/led/arduino/<int:value>")
