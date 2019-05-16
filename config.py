@@ -12,7 +12,7 @@ def init():
 		sleeptime = 1
 		length = 50
 		color_rgb = {}
-		color_rgb_arduino = {}
+		color_rgb_arduino = {'r': '','g': '','b': ''}
 		print('init')
 		function = 'colorfill'
 		functdict = {'colorfill': led.colorfill,
