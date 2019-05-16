@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 jsondata = {}
 adata = {}
-adata['led'] = 1
+
 
 @app.route('/')
 @app.route('/index')
@@ -80,6 +80,7 @@ def arduino(value):
 def arduinodata():
 	global adata
 	adata = config.color_rgb_arduino
+	adata['wait'] = config.wait
 	return jsonify(adata), 200
 
 @app.route("/color", methods=["POST"])
