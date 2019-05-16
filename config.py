@@ -11,7 +11,7 @@ def init():
 		wait = 0.5
 		sleeptime = 1
 		length = 50
-		color_rgb = {}
+		color_rgb = {'r': '','g': '','b': ''}
 		color_rgb_arduino = {'r': '','g': '','b': ''}
 		print('init')
 		function = 'colorfill'
