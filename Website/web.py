@@ -81,7 +81,6 @@ def arduinodata():
 	global adata
 	adata = config.color_rgb_arduino
 	adata['wait'] = config.wait
-	#comment to create changes
 	return jsonify(adata), 200
 
 @app.route("/color", methods=["POST"])
