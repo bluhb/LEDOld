@@ -6,4 +6,3 @@ For LED strip I used an APA102 powered led strip. I have 135 leds but this is al
 
 Also I use a GET request on the site for changing the RGB values. But in the code there's also an POST option, this is because the post request are faster as they don't have to respond and are thus better for the android app which has a colorwheel. When this colorwheel is dragged the LED strip will change it's color accordingly.
 
-Test pull from rpi
