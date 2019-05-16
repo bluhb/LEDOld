@@ -1,0 +1,37 @@
+<!doctype html>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<head lang="en">
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<title>Led Strip</title>
+
+<body>
+
+
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+    <a class="navbar-brand" href="/index">PI HOME</a>
+    </div>
+    <ul class="nav navbar-nav">
+    <li {% if page == 'home' %} class="active" {% endif %}><a href="/index">Home</a></li>
+    <li {% if page == 'led' %} class="active" {% endif %}><a href="/led">Led strip</a></li>
+    </ul>
+  </nav>
+  <div class="jumbotron">
+    <h1>Raspberry pi user interface</h1> 
+    <p>This interface is for interacting with the pi, the first project is to control the LED-strip.</p> 
+  </div>
+
+  {% include page + '.html'%}
+
+</div>
+
+</body>
+</html>
