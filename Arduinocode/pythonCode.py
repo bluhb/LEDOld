@@ -3,7 +3,7 @@ import requests
 import time
 import struct
 
-url = 'http://<youriphere>:5000/arduinodata'
+url = 'http://192.168.1.80:5000/arduinodata'
 arduino = serial.Serial('COM3', 9600)
 time.sleep(2)
 dataUser = 0
@@ -18,8 +18,7 @@ def ArduinoWrite():
     try:
         req = requests.get(url)
         json = req.json()
-        
-		color = json['color']
+        color = json['color']
 		
         r = color['r']
         g = color['g']
@@ -36,6 +35,8 @@ def ArduinoWrite():
     print(r)
     print(g)
     print(b)
+    print('---------------')
+    print(json)
     print('---------------')
 
 while True:

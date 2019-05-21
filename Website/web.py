@@ -84,7 +84,7 @@ def arduino(value):
 @app.route("/arduinodata")
 def arduinodata():
 	global adata
-	adata['çolor'] = config.color_rgb_arduino
+	adata['color'] = config.color_rgb_arduino
 	adata['wait'] = config.wait
 	return jsonify(adata), 200
 
