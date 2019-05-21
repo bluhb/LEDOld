@@ -21,15 +21,13 @@ def worker():
 		except:
 			time.sleep(1)
 		measure_pi()
-		
-	
 	return None
 
 def measure_pi():
 	config.temperature = os.popen("vcgencmd measure_temp").readline().replace("temp=","")
 	config.cpu_load = psutil.cpu_percent(interval=0, percpu = False)
 	return None
-	
+
 
 
 CheckThread = threading.Thread(target=worker)
@@ -49,6 +47,6 @@ while count < 10:
 	except:
 		print('Waiting for INIT to complete')
 		time.sleep(1)
-		count +=1 
+		count +=1
 
 print('INIT does not complete fast enough. Exiting code')
