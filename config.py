@@ -10,7 +10,7 @@ def init():
 		brightness = 1
 		wait = 0.5
 		sleeptime = 1
-		length = 50
+		length = 135
 		color_rgb = {'r': '','g': '','b': ''}
 		color_rgb_arduino = {'r': '','g': '','b': ''}
 		print('init')

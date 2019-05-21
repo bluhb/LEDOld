@@ -32,12 +32,12 @@ def ArduinoWrite():
         b=0
         data = struct.pack('>BBB', 0,0,0)
     arduino.write(data)
-    print(r)
-    print(g)
-    print(b)
-    print('---------------')
-    print(json)
-    print('---------------')
+##    print(r)
+##    print(g)
+##    print(b)
+##    print('---------------')
+##    print(json)
+##    print('---------------')
 
 while True:
     ArduinoWrite()
