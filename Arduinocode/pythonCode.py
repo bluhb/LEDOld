@@ -19,9 +19,11 @@ def ArduinoWrite():
         req = requests.get(url)
         json = req.json()
         
-        r = json['r']
-        g = json['g']
-        b = json['b']
+		color = json['color']
+		
+        r = color['r']
+        g = color['g']
+        b = color['b']
         wait = json['wait']
 
         data = struct.pack('>BBB', r,g,b)
@@ -31,10 +33,10 @@ def ArduinoWrite():
         b=0
         data = struct.pack('>BBB', 0,0,0)
     arduino.write(data)
-    #print(r)
-    #print(g)
-    #print(b)
-    #print('---------------')
+    print(r)
+    print(g)
+    print(b)
+    print('---------------')
 
 while True:
     ArduinoWrite()
