@@ -1,5 +1,6 @@
 # Don't track content of these folders
 /Arduinocode
+Pythoncode.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

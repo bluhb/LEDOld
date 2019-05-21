@@ -4,6 +4,7 @@ import time
 import struct
 
 url = 'http://192.168.1.80:5000/arduinodata'
+Test2
 arduino = serial.Serial('COM3', 9600)
 time.sleep(2)
 dataUser = 0
