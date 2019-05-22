@@ -17,6 +17,7 @@ pixels = adafruit_dotstar.DotStar(board.SCK, board.MOSI, num_pixels, brightness=
 def clear():
 	for color in config.color_rgb:
 		config.color_rgb[color] = 0
+	config.function = colorfill
 	colorfill()
 	config.wait = 10
 	return None
