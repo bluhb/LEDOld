@@ -2,6 +2,7 @@
 import adafruit_dotstar
 import board
 import config
+from functools import lru_cache
 
 #modules for functions
 import math as Math
@@ -39,6 +40,7 @@ def colorfill():
 		pixels.show()
 	return None
 
+@lru_cache(maxsize = 630)
 def definecolor(angle):
 	pi = Math.pi
 	color = [0,0,0]

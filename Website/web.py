@@ -19,6 +19,9 @@ adata = {'color': '', 'wait': ''}
 
 
 @app.route('/')
+def main():
+	return redirect('/index', code=302)
+
 @app.route('/index')
 def hello():
 	
@@ -47,7 +50,7 @@ def colorcontrol(color, value):
 @app.route("/led/length/<int:value>")
 def length(value):
 	config.length = value
-	return redirect('/led', code=302)
+	return ('', 204)
 
 @app.route("/led/wait/<float:value>")
 def wait(value):
