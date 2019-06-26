@@ -40,6 +40,7 @@ def LED():
 def functions(functions):
 	config.function = str(functions)
 	return redirect('/led', code=302)
+
 	
 @app.route("/led/<string:color>/<int:value>")
 def colorcontrol(color, value):

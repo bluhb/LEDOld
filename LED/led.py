@@ -3,6 +3,7 @@ import adafruit_dotstar
 import board
 import config
 from functools import lru_cache
+import random
 
 #modules for functions
 import math as Math
@@ -60,7 +61,9 @@ def rainbow():
 			if j < config.length:
 				angle = (angle) + offset
 				color = definecolor(angle)
-				pixels[j] = (color[0],color[1],color[2])
+				for i in range(0,3,1):
+					color[i] = color[i] * config.brightness
+				pixels[j] = (int(color[0]), int(color[1]), int(color[2]))
 			else:
 				pixels[j] = (0,0,0)
 			
@@ -81,4 +84,5 @@ def colorfade():
 		colorfill()
 		time.sleep(config.wait*0.5)
 	return None
+
 
