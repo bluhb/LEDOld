@@ -5,7 +5,7 @@ import time as t
 functdict = {}
 
 def init():
-	global sleeptime, color_rgb, functdict, wait, length, function, run, brightness, color_rgb_arduino, cpu_load
+	global sleeptime, color_rgb, functdict, wait, length, function, run, brightness, color_rgb_arduino, cpu_load, num_pixels
 	if not 'run' in globals():
 		brightness = 1
 		wait = 0.5
@@ -24,7 +24,7 @@ def init():
 		run = True
 		temperature = 0
 		cpu_load = 0
-		
+		num_pixels = 135
 		print('init done')
 	return None
 

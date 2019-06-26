@@ -12,7 +12,12 @@ import time as time
 #define ledstrip
 
 num_pixels = 135
-pixels = adafruit_dotstar.DotStar(board.SCK, board.MOSI, num_pixels, brightness=1, auto_write=False)
+pixels = adafruit_dotstar.DotStar(
+	board.SCK, 
+	board.MOSI, 
+	num_pixels, 
+	brightness=1, 
+	auto_write=False)
 
 
 #The function for the ledstrip
