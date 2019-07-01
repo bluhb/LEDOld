@@ -37,7 +37,9 @@ def ArduinoRead():
     b = arduino.readline()
     string_n = b.decode()
     string = string_n.rstrip()
-    print(string)
+    val = string.split(",")
+    json = {'temp':val[0], 'humid':val[1]}
+    print(json)
     return None
 
 def init():
@@ -56,9 +58,11 @@ def init():
 
 interval = 5000
 prevMilli = time.time_ns() // 1000000 
+now = time.time_ns() // 1000000
 
 init()
-while True:
+def main():
+    global now, prevMilli
     try:
         now = time.time_ns() // 1000000
         if now - prevMilli >= interval:
@@ -68,7 +72,7 @@ while True:
         ArduinoWrite()
         
         time.sleep(wait)
-			
+                        
     except KeyboardInterrupt:
         data = struct.pack('>BBB', 0,0,0)
         arduino.write(struct.pack('?',True))
@@ -77,3 +81,6 @@ while True:
         print('Quitting the program')
         sys.exit()
 
+if __name__ == '__main__':
+    while True:
+        main()
