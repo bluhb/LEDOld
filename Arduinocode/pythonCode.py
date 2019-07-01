@@ -10,6 +10,9 @@ time.sleep(2)
 dataUser = 0
 led = 0
 wait = 1
+interval = 5000
+prevMilli = time.time_ns() // 1000000 
+now = time.time_ns() // 1000000
 
 def ArduinoWrite():
     global url, wait
@@ -47,20 +50,7 @@ def init():
     for i in range(0,4):
         arduino.write(struct.pack('?', False))
         time.sleep(0.1)
-	
-	
-##    print(r)
-##    print(g)
-##    print(b)
-##    print('---------------')
-##    print(json)
-##    print('---------------')
 
-interval = 5000
-prevMilli = time.time_ns() // 1000000 
-now = time.time_ns() // 1000000
-
-init()
 def main():
     global now, prevMilli
     try:
@@ -82,5 +72,6 @@ def main():
         sys.exit()
 
 if __name__ == '__main__':
+    init()
     while True:
         main()
