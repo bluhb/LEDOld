@@ -7,10 +7,8 @@ import sys
 url = 'http://192.168.1.80:5000/arduinodata'
 arduino = serial.Serial('COM3', 9600)
 time.sleep(2)
-dataUser = 0
-led = 0
 wait = 1
-interval = 5000
+interval = 5000 #5 seconds interval for reading the arduino.
 prevMilli = time.time_ns() // 1000000 
 now = time.time_ns() // 1000000
 
@@ -60,7 +58,6 @@ def main():
             ArduinoRead()
         
         ArduinoWrite()
-        
         time.sleep(wait)
                         
     except KeyboardInterrupt:
