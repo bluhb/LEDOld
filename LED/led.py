@@ -11,8 +11,16 @@ import time as time
 
 #define ledstrip
 
-num_pixels = 135
-pixels = adafruit_dotstar.DotStar(board.SCK, board.MOSI, num_pixels, brightness=1, auto_write=False)
+def initLED():
+	global pixels
+	pixels = adafruit_dotstar.DotStar(
+		board.SCK, 
+		board.MOSI, 
+		config.num_pixels, 
+		brightness=1, 
+		auto_write=False)
+	return None
+
 
 
 #The function for the ledstrip
@@ -61,8 +69,9 @@ def rainbow():
 			if j < config.length:
 				angle = (angle) + offset
 				color = definecolor(angle)
-				for i in range(0,3,1):
-					color[i] = color[i] * config.brightness
+				#for i in range(0,3,1):
+				#	color[i] = color[i] * config.brightness
+				color = [i * config.brightness for i in color]
 				pixels[j] = (int(color[0]), int(color[1]), int(color[2]))
 			else:
 				pixels[j] = (0,0,0)

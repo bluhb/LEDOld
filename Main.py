@@ -13,6 +13,8 @@ count = 0
 #Thread for running the led strip
 def worker():
 	config.init()
+	led.initLED()
+
 	print('did init')
 	while True:
 		try:
