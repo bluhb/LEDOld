@@ -14,6 +14,14 @@ String value;
 unsigned long prevMillis = 0;
 const long interval = 5000;
 
+void TemperatureRead(){
+    DHT.read11(dht_apin);
+    Serial.print(DHT.temperature);
+    Serial.print(',');
+    Serial.print(DHT.humidity);
+    Serial.print('\n');
+}
+
 void setup(){
   pinMode(r, OUTPUT);
   pinMode(g, OUTPUT);
@@ -29,12 +37,7 @@ void loop(){
   
   if (currentMillis - prevMillis >= interval){
     prevMillis = currentMillis;
-    DHT.read11(dht_apin);
-    Serial.print(DHT.temperature);
-    Serial.print(',');
-    Serial.print(DHT.humidity);
-    Serial.print('\n');
-    
+    TemperatureRead();
   }
   else{
     while(Serial.available() >= 4){
