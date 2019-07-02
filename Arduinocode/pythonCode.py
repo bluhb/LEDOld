@@ -37,7 +37,7 @@ def ArduinoWrite():
 def ArduinoRead(): 
     humidTempB = arduino.readline()
     humidTempD = humidTempB.decode()
-    humidTemp = string_n.rstrip()
+    humidTemp = humidTempD.rstrip()
     val = humidTemp.split(",")
     json = {'temp':val[0], 'humid':val[1]}
     print(json)
