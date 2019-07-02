@@ -48,6 +48,7 @@ def init():
     for i in range(0,4):
         arduino.write(struct.pack('?', False))
         time.sleep(0.1)
+    return None
 
 def main():
     global now, prevMilli
@@ -67,6 +68,7 @@ def main():
         arduino.close()
         print('Quitting the program')
         sys.exit()
+    return None
 
 if __name__ == '__main__':
     init()
