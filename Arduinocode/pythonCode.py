@@ -25,6 +25,8 @@ def ArduinoWrite():
         wait = json['wait']
 
         data = struct.pack('>BBB', r,g,b)
+    except KeyboardInterrupt:
+        Exit()
     except:
         r=0
         g=0
@@ -34,14 +36,25 @@ def ArduinoWrite():
     arduino.write(data)
     return None
 
-def ArduinoRead(): 
-    humidTempB = arduino.readline()
-    humidTempD = humidTempB.decode()
-    humidTemp = humidTempD.rstrip()
-    val = humidTemp.split(",")
-    json = {'temp':val[0], 'humid':val[1]}
-    print(json)
+def ArduinoRead():
+    try:
+        humidTempB = arduino.readline()
+        humidTempD = humidTempB.decode()
+        humidTemp = humidTempD.rstrip()
+        val = humidTemp.split(",")
+        json = {'temp':val[0], 'humid':val[1]}
+        print(json)
+    except KeyboardInterrupt:
+        Exit()
     return None
+
+def Exit():
+    data = struct.pack('>BBB', 0,0,0)
+    arduino.write(struct.pack('?',True))
+    arduino.write(data)
+    arduino.close()
+    print('Quitting the program')
+    sys.exit()
 
 def init():
     print('init')
@@ -62,12 +75,7 @@ def main():
         time.sleep(wait)
                         
     except KeyboardInterrupt:
-        data = struct.pack('>BBB', 0,0,0)
-        arduino.write(struct.pack('?',True))
-        arduino.write(data)
-        arduino.close()
-        print('Quitting the program')
-        sys.exit()
+        Exit()
     return None
 
 if __name__ == '__main__':
