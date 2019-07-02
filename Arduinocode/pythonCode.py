@@ -6,7 +6,7 @@ import sys
 
 url = 'http://192.168.1.80:5000/arduinodata'
 arduino = serial.Serial('COM3', 9600)
-time.sleep(2)
+time.sleep(2) #wait 2 seconds to initialize the connection
 wait = 1
 interval = 5000 #5 seconds interval for reading the arduino.
 prevMilli = time.time_ns() // 1000000 
@@ -35,10 +35,10 @@ def ArduinoWrite():
     return None
 
 def ArduinoRead(): 
-    b = arduino.readline()
-    string_n = b.decode()
-    string = string_n.rstrip()
-    val = string.split(",")
+    humidTempB = arduino.readline()
+    humidTempD = humidTempB.decode()
+    humidTemp = string_n.rstrip()
+    val = humidTemp.split(",")
     json = {'temp':val[0], 'humid':val[1]}
     print(json)
     return None
