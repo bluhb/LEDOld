@@ -7,6 +7,8 @@ int r = 9;
 int g = 10;
 int b = 11;
 
+int LDR = A1;
+
 int data[3];
 
 String value;
@@ -20,6 +22,8 @@ void SensorRead(){
   Serial.print(DHT.temperature);
   Serial.print(',');
   Serial.print(DHT.humidity);
+  Serial.print(',');
+  Serial.print(analogRead(LDR));
   Serial.print('\n');
 }
 
@@ -38,6 +42,7 @@ void setup(){
   pinMode(r, OUTPUT);
   pinMode(g, OUTPUT);
   pinMode(b, OUTPUT);
+  pinMode(LDR, INPUT);
   Serial.begin(9600);
   delay(1500); 
 }

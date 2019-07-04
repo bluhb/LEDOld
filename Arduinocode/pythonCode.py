@@ -42,7 +42,7 @@ def ArduinoRead():
         humidTempD = humidTempB.decode()
         humidTemp = humidTempD.rstrip()
         val = humidTemp.split(",")
-        json = {'temp':val[0], 'humid':val[1]}
+        json = {'temp':val[0], 'humid':val[1], 'LDR':val[2]}
         print(json)
     except KeyboardInterrupt:
         Exit()
