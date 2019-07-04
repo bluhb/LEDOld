@@ -15,7 +15,7 @@ unsigned long prevMillis = 0;
 const long interval = 5000;
 
 /*Function that reads the temperature and prints it to serial monitor.*/
-void TemperatureRead(){
+void SensorRead(){
   DHT.read11(dht_apin);
   Serial.print(DHT.temperature);
   Serial.print(',');
@@ -47,7 +47,7 @@ void loop(){
   /*Call the functions for the sensors every interval.*/
   if (currentMillis - prevMillis >= interval){
     prevMillis = currentMillis;
-    TemperatureRead();
+    SensorRead();
   }
   else{/*Read the serial send by the pc/server and save the color in data[3]*/
     ReadSerial();
