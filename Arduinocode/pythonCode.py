@@ -19,9 +19,10 @@ def ArduinoWrite():
         #req = requests.get(url)
         #json = req.json()
         color = config.color_rgb
-        r = int(color['r'])
-        g = int(color['g'])
-        b = int(color['b'])
+		brightness = config.brightness
+        r = int(color['r'] * brightness)
+        g = int(color['g'] * brightness)
+        b = int(color['b'] * brightness)
         wait = config.wait
 
         data = struct.pack('>BBB', r,g,b)
