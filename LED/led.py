@@ -47,6 +47,7 @@ def colorfill():
 				pixels[i] = (0,0,0)
 
 		pixels.show()
+		arduino.main()
 	return None
 
 @lru_cache(maxsize = 630)

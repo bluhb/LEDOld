@@ -25,7 +25,6 @@ def worker():
 		except:
 			time.sleep(1)
 		measure_pi()
-		arduino.main()
 	return None
 
 def measure_pi():
