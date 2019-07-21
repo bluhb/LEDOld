@@ -3,7 +3,7 @@ from Website import web as site
 import config
 import os
 import psutil
-from Arduinocode import pythonCode.py as arduino
+from Arduinocode import pythonCode as arduino
 
 
 import threading
