@@ -3,6 +3,7 @@ from Website import web as site
 import config
 import os
 import psutil
+from Arduinocode import pythonCode.py as arduino
 
 
 import threading
@@ -13,16 +14,18 @@ count = 0
 #Thread for running the led strip
 def worker():
 	config.init()
+	arduino.init()
 	led.initLED()
 
 	print('did init')
 	while True:
 		try:
-			config.functdict[config.function]()
 			time.sleep(config.wait)
+			config.functdict[config.function]()
 		except:
 			time.sleep(1)
 		measure_pi()
+		arduino.main()
 	return None
 
 def measure_pi():
