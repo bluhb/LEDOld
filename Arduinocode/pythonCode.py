@@ -3,26 +3,26 @@ import requests
 import time
 import struct
 import sys
+import config
 
-url = 'http://192.168.1.80:5000/arduinodata'
-arduino = serial.Serial('COM3', 9600)
+url = 'http://127.0.0.1:5000/arduinodata'
+arduino = serial.Serial('/dev/ttyUSB0', 9600)
 time.sleep(2) #wait 2 seconds to initialize the connection
 wait = 1
-interval = 5000 #5 seconds interval for reading the arduino.
-prevMilli = time.time_ns() // 1000000 
-now = time.time_ns() // 1000000
+interval = 5 #5 seconds interval for reading the arduino.
+prevMilli = time.time() // 1000000 
+now = time.time() // 1000000
 
 def ArduinoWrite():
     global url, wait
     try:
-        req = requests.get(url)
-        json = req.json()
-        color = json['color']
-		
+        #req = requests.get(url)
+        #json = req.json()
+        color = config.color_rgb
         r = int(color['r'])
         g = int(color['g'])
         b = int(color['b'])
-        wait = json['wait']
+        wait = config.wait
 
         data = struct.pack('>BBB', r,g,b)
     except KeyboardInterrupt:
@@ -66,13 +66,13 @@ def init():
 def main():
     global now, prevMilli
     try:
-        now = time.time_ns() // 1000000
+        now = time.time()
         if now - prevMilli >= interval:
             prevMilli = now
             ArduinoRead()
         
         ArduinoWrite()
-        time.sleep(wait)
+        #time.sleep(wait)
                         
     except KeyboardInterrupt:
         Exit()
