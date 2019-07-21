@@ -72,6 +72,8 @@ def data():
 		jsondata['temp'] = config.temperature
 		jsondata['wait'] = config.wait
 		jsondata['cpu_load'] = config.cpu_load
+		jsondata['roomTemp'] = config.roomTemp
+		jsondata['roomHumid'] = config.roomHumid
 	except:
 		for i in jsondata:
 			jsondata[i] = 0
