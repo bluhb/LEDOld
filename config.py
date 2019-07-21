@@ -5,8 +5,7 @@ import time as t
 functdict = {}
 
 def init():
-	global sleeptime, color_rgb, functdict, wait, length, function, run, 
-	brightness, color_rgb_arduino, cpu_load, num_pixels, roomTemp, roomHumid, roomLDR
+	global sleeptime, color_rgb, functdict, wait, length, function, run, brightness, color_rgb_arduino, cpu_load, num_pixels, roomTemp, roomHumid, roomLDR
 	if not 'run' in globals():
 		num_pixels = 135	#length of your LED strip
 		
