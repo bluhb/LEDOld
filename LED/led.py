@@ -4,6 +4,7 @@ import board
 import config
 from functools import lru_cache
 import random
+from Arduinocode import pythonCode as arduino
 
 #modules for functions
 import math as Math
