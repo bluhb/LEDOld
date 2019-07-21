@@ -19,7 +19,7 @@ def ArduinoWrite():
         #req = requests.get(url)
         #json = req.json()
         color = config.color_rgb
-		brightness = config.brightness
+        brightness = config.brightness
         r = int(color['r'] * brightness)
         g = int(color['g'] * brightness)
         b = int(color['b'] * brightness)
