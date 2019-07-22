@@ -14,7 +14,7 @@ int data[3];
 String value;
 
 unsigned long prevMillis = 0;
-const long interval = 5000;
+const long interval = 3600000; /*1 hour*/
 
 /*Function that reads the temperature and prints it to serial monitor.*/
 void SensorRead(){
