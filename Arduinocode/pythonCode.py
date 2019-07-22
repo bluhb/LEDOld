@@ -72,9 +72,9 @@ def init():
     for i in range(0,4):
         arduino.write(struct.pack('?', False))
         time.sleep(0.1)
-	db = TinyDB('Database.json')
-	sensorData = db.table('sensors')
-	return None
+    db = TinyDB('Database.json')
+    sensorData = db.table('sensors')
+    return None
 
 def main():
     global now, prevMilli
