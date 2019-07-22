@@ -36,7 +36,7 @@ def arduinoWorker():
 			arduino.main()
 			
 		except:
-			#time.sleep(1)
+			pass
 	return None
 
 def measure_pi():
