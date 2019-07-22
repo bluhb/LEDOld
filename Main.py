@@ -68,6 +68,6 @@ while count < 10:
 		count +=1
 
 print('Exiting code')
-arduino.exit()
+arduino.Exit()
 
 
