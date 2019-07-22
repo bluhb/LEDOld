@@ -22,6 +22,9 @@ def worker():
 		try:
 			time.sleep(config.wait)
 			config.functdict[config.function]()
+		except KeyboardInterrupt:
+			arduino.Exit()
+			print('server terminated')	
 		except:
 			time.sleep(1)
 		measure_pi()
@@ -69,6 +72,3 @@ try:
 
 	print('INIT does not complete fast enough. Exiting code')
 
-except KeyboardInterrupt:
-	arduino.Exit()
-	print('server terminated')
