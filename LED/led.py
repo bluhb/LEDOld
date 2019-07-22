@@ -37,9 +37,9 @@ def colorfill():
 	if 'r' in config.color_rgb and 'g' in config.color_rgb and 'b' in config.color_rgb:
 		colors = [config.color_rgb['r'], config.color_rgb['g'], config.color_rgb['b']]
 		colors = [i * config.brightness for i in colors]
-		config.color_rgb_arduino['r'] = colors[0]
-		config.color_rgb_arduino['g'] = colors[1]
-		config.color_rgb_arduino['b'] = colors[2]
+		#config.color_rgb_arduino['r'] = colors[0]
+		#config.color_rgb_arduino['g'] = colors[1]
+		#config.color_rgb_arduino['b'] = colors[2]
 		
 		for i in range(0,len(pixels),1):
 			if i < config.length:
