@@ -51,7 +51,7 @@ def ArduinoRead():
         config.roomHumid = val[1]
         config.roomLDR = val[2]
         sensorData.insert({'time':str(datetime.datetime.now()),'data':json})
-		print(json)
+        print(json)
     except KeyboardInterrupt:
         Exit()
     except:
