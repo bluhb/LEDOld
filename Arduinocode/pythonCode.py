@@ -76,7 +76,6 @@ def init():
         time.sleep(0.1)
     db = TinyDB('Database.json')
     sensorData = db.table('sensors')
-    sensorData.insert({'test':str(datetime.datetime.now())})
     return None
 
 def main():
