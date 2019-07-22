@@ -38,7 +38,7 @@ def LED():
 
 @app.route("/led/synced")
 def synced():
-	config.synced = not config.synced
+	config.synced = False
 	return redirect('/led', code=302)
 
 @app.route("/led/<string:functions>")
