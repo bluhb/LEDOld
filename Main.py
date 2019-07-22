@@ -30,7 +30,7 @@ def worker():
 def arduinoWorker():
 	while True:
 		try:
-			if True:
+			if config.synced:
 				config.color_rgb_arduino = config.color_rgb
 			arduino.main()
 			time.sleep(config.wait)

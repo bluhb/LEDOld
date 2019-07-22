@@ -29,6 +29,9 @@
 	{% endfor %}
 	</div>
 	
+	<div id='synced' class="col-sm-6"><button type="button" class="btn btn-default">sync colors</button></div>
+	
+	
 	<div id="rectangle"></div>
 	
 	<p>R</p><input id= 'r' type='range' min='0' max='255' value="{{color_rgb['r']}}" onchange="InputServer(this.id, this.value)" oninput="ChangeColor()"></input> <br>
@@ -64,6 +67,10 @@
 			alert('{{i}} gestart');
 		}
 	{% endfor %}
+	
+	document.getElementById('synced').onclick = function(){
+		$.get('/led/synced')
+	}
 	
 	function InputServer(id, val) {
         $.get('/led/'+id+'/'+val);
