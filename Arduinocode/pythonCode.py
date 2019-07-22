@@ -76,8 +76,7 @@ def main():
             ArduinoRead()
         
         ArduinoWrite()
-        #time.sleep(wait)
-                        
+        #time.sleep(wait)  
     except KeyboardInterrupt:
         Exit()
     return None

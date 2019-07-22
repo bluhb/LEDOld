@@ -30,12 +30,13 @@ def worker():
 def arduinoWorker():
 	while True:
 		try:
+			time.sleep(config.wait)
 			if config.synced:
 				config.color_rgb_arduino = config.color_rgb
 			arduino.main()
-			time.sleep(config.wait)
+			
 		except:
-			time.sleep(1)
+			#time.sleep(1)
 	return None
 
 def measure_pi():
