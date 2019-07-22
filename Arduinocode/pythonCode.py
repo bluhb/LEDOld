@@ -41,6 +41,7 @@ def ArduinoWrite():
     return None
 
 def ArduinoRead():
+	global sensorData
     try:
         humidTempB = arduino.readline()
         humidTempD = humidTempB.decode()
@@ -68,6 +69,7 @@ def Exit():
     sys.exit()
 
 def init():
+	global sensorData, db
     print('init')
     for i in range(0,4):
         arduino.write(struct.pack('?', False))
