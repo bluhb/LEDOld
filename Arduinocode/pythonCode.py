@@ -5,6 +5,9 @@ import struct
 import sys
 import config
 
+from tinydb import TinyDB, Query
+import datetime
+
 url = 'http://127.0.0.1:5000/arduinodata'
 arduino = serial.Serial('/dev/ttyUSB0', 9600)
 time.sleep(2) #wait 2 seconds to initialize the connection
@@ -47,7 +50,8 @@ def ArduinoRead():
         config.roomTemp = val[0]
         config.roomHumid = val[1]
         config.roomLDR = val[2]
-        print(json)
+        sensorData.insert({'time':str(datetime.datetime.now()),'data':json})
+		print(json)
     except KeyboardInterrupt:
         Exit()
     except:
@@ -68,6 +72,8 @@ def init():
     for i in range(0,4):
         arduino.write(struct.pack('?', False))
         time.sleep(0.1)
+	db = TinyDB('Database.json')
+	sensorData = db.table('sensors')
     return None
 
 def main():
