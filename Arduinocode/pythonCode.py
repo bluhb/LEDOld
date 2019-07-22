@@ -66,7 +66,6 @@ def Exit():
     arduino.write(data)
     arduino.close()
     print('Quitting the program')
-    sys.exit()
 
 def init():
     global sensorData, db
