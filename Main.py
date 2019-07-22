@@ -27,6 +27,17 @@ def worker():
 		measure_pi()
 	return None
 
+def arduinoWorker():
+	while True:
+		try:
+			if True:
+				config.color_rgb_arduino = config.color_rgb
+			arduino.main()
+			time.sleep(config.wait)
+		except:
+			time.sleep(1)
+	return None
+
 def measure_pi():
 	config.temperature = os.popen("vcgencmd measure_temp").readline().replace("temp=","")
 	config.cpu_load = psutil.cpu_percent(interval=0, percpu = False)
@@ -38,7 +49,9 @@ CheckThread = threading.Thread(target=worker)
 CheckThread.daemon = True
 CheckThread.start()
 
-
+ArduinoThread = threading.Thread(target=arduinoWorker)
+ArduinoThread.daemon = True
+ArduinoThread.start()
 
 
 
