@@ -50,6 +50,9 @@ def ArduinoRead():
         #print(json)
     except KeyboardInterrupt:
         Exit()
+	except:
+		pass
+		
     return None
 
 def Exit():
