@@ -36,11 +36,6 @@ def LED():
 		wait=config.wait,
 		page='led')
 
-@app.route("/led/synced")
-def synced():
-	config.synced = False
-	return redirect('/led', code=302)
-
 @app.route("/led/<string:functions>")
 def functions(functions):
 	config.function = str(functions)
