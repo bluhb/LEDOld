@@ -69,7 +69,7 @@ def Exit():
     sys.exit()
 
 def init():
-	global sensorData, db
+    global sensorData, db
     print('init')
     for i in range(0,4):
         arduino.write(struct.pack('?', False))
