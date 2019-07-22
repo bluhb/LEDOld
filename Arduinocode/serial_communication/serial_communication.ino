@@ -43,7 +43,7 @@ void setup(){
   pinMode(g, OUTPUT);
   pinMode(b, OUTPUT);
   pinMode(LDR, INPUT);
-  Serial.begin(9600);
+  Serial.begin(115200);
   delay(1500);
   SensorRead();
 }

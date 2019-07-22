@@ -6,7 +6,7 @@ import sys
 import config
 
 url = 'http://127.0.0.1:5000/arduinodata'
-arduino = serial.Serial('/dev/ttyUSB0', 9600)
+arduino = serial.Serial('/dev/ttyUSB0', 115200)
 time.sleep(2) #wait 2 seconds to initialize the connection
 wait = 1
 interval = 300 #5 min interval for reading the arduino.
