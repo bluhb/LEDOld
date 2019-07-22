@@ -1,5 +1,3 @@
-from Website import web as site
-from LED import led as led
 import time as t
 
 functdict = {}
@@ -23,17 +21,16 @@ def init():
 		color_rgb_arduino = {'r': '','g': '','b': ''}
 		print('init')
 		function = 'colorfill'
-		t.sleep(0.5)
-		run = True
 		temperature = 0
 		cpu_load = 0
 		length = num_pixels #always start the program with the full led strip length.
 		roomTemp = 0
 		roomHumid = 0
 		roomLDR = 0
-		
 		synced = True #sync arduino color to the rpi color
 		
+		t.sleep(0.5)
+		run = True
 		print('init done')
 	return None
 
