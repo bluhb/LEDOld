@@ -48,27 +48,28 @@ def measure_pi():
 	return None
 
 
-try:
-	CheckThread = threading.Thread(target=worker)
-	CheckThread.daemon = True
-	CheckThread.start()
 
-	ArduinoThread = threading.Thread(target=arduinoWorker)
-	ArduinoThread.daemon = True
-	ArduinoThread.start()
+CheckThread = threading.Thread(target=worker)
+CheckThread.daemon = True
+CheckThread.start()
+
+ArduinoThread = threading.Thread(target=arduinoWorker)
+ArduinoThread.daemon = True
+ArduinoThread.start()
 
 
 
-	#Try to start the website when init() is done. Try it for 10 times then stop.
-	while count < 10:
-		try:
-			if config.run:
-				site.app.run(debug=False, host='0.0.0.0')
-				count = 10
-		except:
-			print('Waiting for INIT to complete')
-			time.sleep(1)
-			count +=1
+#Try to start the website when init() is done. Try it for 10 times then stop.
+while count < 10:
+	try:
+		if config.run:
+			site.app.run(debug=False, host='0.0.0.0')
+			count = 10
+	except:
+		print('Waiting for INIT to complete')
+		time.sleep(1)
+		count +=1
 
-	print('INIT does not complete fast enough. Exiting code')
+print('INIT does not complete fast enough. Exiting code')
+
 
