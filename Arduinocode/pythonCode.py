@@ -41,7 +41,7 @@ def ArduinoWrite():
     return None
 
 def ArduinoRead():
-	global sensorData
+    global sensorData
     try:
         humidTempB = arduino.readline()
         humidTempD = humidTempB.decode()
