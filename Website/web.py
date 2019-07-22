@@ -75,6 +75,7 @@ def data():
 		jsondata['roomTemp'] = config.roomTemp
 		jsondata['roomHumid'] = config.roomHumid
 		jsondata['roomLight'] = config.roomLDR
+		print(config.roomLDR)
 	except:
 		for i in jsondata:
 			jsondata[i] = 0
