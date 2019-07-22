@@ -73,7 +73,7 @@ def main():
         now = time.time()
         if now - prevMilli >= interval:
             prevMilli = now
-            #ArduinoRead()
+            ArduinoRead()
         
         ArduinoWrite()
         #time.sleep(wait)  
