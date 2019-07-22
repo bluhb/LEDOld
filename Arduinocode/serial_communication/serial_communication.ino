@@ -14,7 +14,7 @@ int data[3];
 String value;
 
 unsigned long prevMillis = 0;
-const long interval = 3600000; /*1 hour*/
+const long interval = 300000; /*5 min*/
 
 /*Function that reads the temperature and prints it to serial monitor.*/
 void SensorRead(){
@@ -43,8 +43,9 @@ void setup(){
   pinMode(g, OUTPUT);
   pinMode(b, OUTPUT);
   pinMode(LDR, INPUT);
-  Serial.begin(9600);
-  delay(1500); 
+  Serial.begin(115200);
+  delay(1500);
+  SensorRead();
 }
 
 void loop(){
