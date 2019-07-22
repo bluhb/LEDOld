@@ -1,3 +1,4 @@
+from LED import led as led
 import time as t
 
 functdict = {}
