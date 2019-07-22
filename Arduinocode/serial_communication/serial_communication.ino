@@ -53,10 +53,8 @@ void loop(){
   if (currentMillis - prevMillis >= interval){
     prevMillis = currentMillis;
     SensorRead();
-  }
-  else{/*Read the serial send by the pc/server and save the color in data[3]*/
-    ReadSerial();
-  }    
+  }/*Read the serial send by the pc/server and save the color in data[3]*/
+  ReadSerial();   
   /*Write the color to the LED strip*/
   analogWrite(r, data[0]);
   analogWrite(g, data[1]);
