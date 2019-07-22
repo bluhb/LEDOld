@@ -74,7 +74,7 @@ def init():
         time.sleep(0.1)
 	db = TinyDB('Database.json')
 	sensorData = db.table('sensors')
-    return None
+	return None
 
 def main():
     global now, prevMilli
