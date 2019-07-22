@@ -1,5 +1,3 @@
-
-
 #include <dht.h>
 #define dht_apin A0
 
@@ -21,13 +19,13 @@ const long interval = 5000;
 /*Function that reads the temperature and prints it to serial monitor.*/
 void SensorRead(){
   DHT.read11(dht_apin);
-  /*Serial.print(DHT.temperature);
+  Serial.print(DHT.temperature);
   Serial.print(',');
   Serial.print(DHT.humidity);
   Serial.print(',');
   Serial.print(analogRead(LDR));
   Serial.print('\n');
-*/}
+}
 
 void ReadSerial(){
   while(Serial.available() >= 4){
