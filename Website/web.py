@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 jsondata = {}
 adata = {'color': '', 'wait': ''}
-config.color_rgb = {'r':100, 'g':155, 'b':255}
+
 
 
 @app.route('/')
@@ -36,10 +36,10 @@ def LED():
 		wait=config.wait,
 		page='led')
 
-@app.route('/download')
-def download():
-    path = '../Database.json'
-    return send_file(path, as_attachment = True)
+# @app.route('/download')
+# def download():
+    # path = '../Database.json'
+    # return send_file(path, as_attachment = True)
 
 
 
