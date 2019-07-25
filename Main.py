@@ -22,6 +22,7 @@ def worker():
 		try:
 			time.sleep(config.wait)
 			config.functdict[config.function]()
+			print(config.color_rgb)
 		except:
 			time.sleep(1)
 		measure_pi()
@@ -68,6 +69,6 @@ while count < 10:
 		count +=1
 
 print('Exiting code')
-arduino.exit()
+arduino.Exit()
 
 
