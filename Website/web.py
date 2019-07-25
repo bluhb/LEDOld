@@ -24,7 +24,6 @@ def main():
 
 @app.route('/index')
 def hello():
-	
 	return render_template('index.html', page='home')
 
 @app.route("/led")
@@ -35,6 +34,13 @@ def LED():
 		length=config.length,
 		wait=config.wait,
 		page='led')
+
+@app.route('/download')
+def download():
+    path = '../Database.json'
+    return send_file(path, as_attachment = True)
+
+
 
 @app.route("/led/<string:functions>")
 def functions(functions):
