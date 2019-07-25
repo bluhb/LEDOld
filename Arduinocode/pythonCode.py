@@ -8,13 +8,18 @@ import config
 from tinydb import TinyDB, Query
 import datetime
 
+
+
 url = 'http://127.0.0.1:5000/arduinodata'
 arduino = serial.Serial('/dev/ttyUSB0', 115200)
-time.sleep(2) #wait 2 seconds to initialize the connection
+time.sleep(5) #wait 5 seconds to initialize the connection
 wait = 1
 interval = 300 #5 min interval for reading the arduino.
 prevMilli = time.time() // 1000000 
 now = time.time() // 1000000
+
+def get_serial_port():
+    return "/dev/"+os.popen("dmesg | egrep ttyACM | cut -f3 -d: | tail -n1").read().strip()
 
 def ArduinoWrite():
     global url, wait
@@ -76,6 +81,7 @@ def init():
         time.sleep(0.1)
     db = TinyDB('Database.json')
     sensorData = db.table('sensors')
+    ArduinoRead()
     return None
 
 def main():
@@ -93,6 +99,7 @@ def main():
     return None
 
 if __name__ == '__main__':
+    print(get_serial_port())
     init()
     while True:
         main()
