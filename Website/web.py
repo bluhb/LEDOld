@@ -84,6 +84,7 @@ def data():
 	except:
 		for i in jsondata:
 			jsondata[i] = 0
+		raise KeyError
 		
 	return jsonify(jsondata), 200
 
