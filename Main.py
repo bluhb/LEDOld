@@ -35,7 +35,7 @@ def arduinoWorker():
 			if config.synced:
 				config.color_rgb_arduino = config.color_rgb
 			arduino.main()
-			
+			print(config.wait)
 		except:
 			pass
 	return None
