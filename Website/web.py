@@ -16,6 +16,7 @@ app = Flask(__name__)
 
 jsondata = {}
 adata = {'color': '', 'wait': ''}
+config.color_rgb = {'r':100, 'g':155, 'b':255}
 
 
 @app.route('/')
