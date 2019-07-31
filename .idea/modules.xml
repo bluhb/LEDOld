@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/LED.iml" filepath="$PROJECT_DIR$/.idea/LED.iml" />
+      <module fileurl="file://$USER_HOME$/AppData/Local/Temp/mailscraper.py/.idea/mailscraper.py.iml" filepath="$USER_HOME$/AppData/Local/Temp/mailscraper.py/.idea/mailscraper.py.iml" />
     </modules>
   </component>
 </project>

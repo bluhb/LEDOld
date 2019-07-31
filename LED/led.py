@@ -7,7 +7,7 @@ import random
 from Arduinocode import pythonCode as arduino
 
 # modules for functions
-import math as Math
+import math
 import time as time
 
 
@@ -54,16 +54,16 @@ def colorfill():
 
 @lru_cache(maxsize=630)
 def definecolor(angle):
-    pi = Math.pi
+    pi = math.pi
     color = [0, 0, 0]
-    color[0] = int(Math.sin(angle) * 127 + 128)
-    color[1] = int(Math.sin(angle + 0.66 * pi) * 127 + 128)
-    color[2] = int(Math.sin(angle + 1.33 * pi) * 127 + 128)
+    color[0] = int(math.sin(angle) * 127 + 128)
+    color[1] = int(math.sin(angle + 0.66 * pi) * 127 + 128)
+    color[2] = int(math.sin(angle + 1.33 * pi) * 127 + 128)
     return (color)
 
 
 def rainbow():
-    pi = Math.pi
+    pi = math.pi
     if config.length < 1:
         config.length = 1
     offset = (2 * pi) / config.length
@@ -87,7 +87,7 @@ def rainbow():
 
 
 def colorfade():
-    pi = Math.pi
+    pi = math.pi
     for angle in range(0, int(200 * pi), 1):
         angle = angle / 100
         colors = definecolor(angle)
