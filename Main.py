@@ -26,7 +26,6 @@ def worker():
 		except:
 			time.sleep(1)
 		measure_pi()
-	return None
 
 def arduinoWorker():
 	while True:
@@ -38,7 +37,6 @@ def arduinoWorker():
 			print(config.wait)
 		except:
 			pass
-	return None
 
 def measure_pi():
 	config.temperature = os.popen("vcgencmd measure_temp").readline().replace("temp=","")
