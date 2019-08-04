@@ -14,7 +14,7 @@ int data[3];
 String value;
 
 unsigned long prevMillis = 0;
-const long interval = 5000;
+const long interval = 300000; /*5 min*/
 
 /*Function that reads the temperature and prints it to serial monitor.*/
 void SensorRead(){
@@ -43,8 +43,9 @@ void setup(){
   pinMode(g, OUTPUT);
   pinMode(b, OUTPUT);
   pinMode(LDR, INPUT);
-  Serial.begin(9600);
-  delay(1500); 
+  Serial.begin(115200);
+  delay(1500);
+  SensorRead();
 }
 
 void loop(){
@@ -53,10 +54,8 @@ void loop(){
   if (currentMillis - prevMillis >= interval){
     prevMillis = currentMillis;
     SensorRead();
-  }
-  else{/*Read the serial send by the pc/server and save the color in data[3]*/
-    ReadSerial();
-  }    
+  }/*Read the serial send by the pc/server and save the color in data[3]*/
+  ReadSerial();   
   /*Write the color to the LED strip*/
   analogWrite(r, data[0]);
   analogWrite(g, data[1]);

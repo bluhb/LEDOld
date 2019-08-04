@@ -27,7 +27,7 @@
 			<div class="row">	
 		{% endif %}
 	{% endfor %}
-	</div>
+	</div>	
 	
 	<div id="rectangle"></div>
 	
@@ -38,6 +38,10 @@
 	<p>Speed</p><input id= 'wait' type='range' min='0.0001' max='0.2' step='0.0001' value="{{wait}}" onchange="InputServer(this.id, this.value)"></input>
 	
 	<p>brightness</p><input id= 'brightness' type='range' min='0.1' max='0.9999' step='0.001' value="1" onchange="InputServer(this.id, this.value)"></input>
+	
+	<p>The room temperature is:<input type='text' id='roomTemp'></input></p>
+	<p>The humidity is:<input type='text' id='roomHumid'></input></p>
+	<p>The light intensity is:<input type='text' id='roomLight'></input></p>
 	
 	<p>The temperature of the pi is:<input type='text' id='temperature'></input></p>
 	<p>The cpu-usage of the pi is:<input type='text' id='cpu_load'></input></p>
@@ -62,6 +66,10 @@
 		}
 	{% endfor %}
 	
+	document.getElementById('synced').onclick = function(){
+		$.get('/led/synced')
+	}
+	
 	function InputServer(id, val) {
         $.get('/led/'+id+'/'+val);
     }
@@ -81,9 +89,15 @@
 				b = data['color']['b']
 				temperature = data['temp']
 				cpu_load = data['cpu_load']
+				roomTemp = data['roomTemp']
+				roomHumid = data['roomHumid']
+				roomLight = data['roomLight']
 				document.getElementById('rectangle').style.backgroundColor = 'rgb('+r+','+g+','+b+', 255)';
 				document.getElementById('temperature').value = temperature;
 				document.getElementById('cpu_load').value = cpu_load;
+				document.getElementById('roomTemp').value = roomTemp;
+				document.getElementById('roomHumid').value = roomHumid;
+				document.getElementById('roomLight').value = roomLight
 				
 			})
 	}
