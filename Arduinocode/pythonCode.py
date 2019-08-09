@@ -43,7 +43,7 @@ def ArduinoWrite():
         data = struct.pack('>BBB', 0,0,0)
     arduino.write( struct.pack('?', True))
     arduino.write(data)
-	print(data)
+    print(config.color_rgb)
     return None
 
 def ArduinoRead():
