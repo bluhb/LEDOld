@@ -1,4 +1,4 @@
-from Web import Web as site
+from Website import web as site
 from LED import led as led
 import time as t
 
