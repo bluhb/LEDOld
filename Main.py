@@ -60,7 +60,7 @@ ArduinoThread.start()
 while count < 10:
 	try:
 		if config.run:
-			site.app.run(debug=True, host='0.0.0.0')
+			site.app.run(debug=False, host='0.0.0.0')
 			count = 10
 	except:
 		print('Waiting for INIT to complete')
