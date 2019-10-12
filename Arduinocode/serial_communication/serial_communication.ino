@@ -28,9 +28,9 @@ void SensorRead(){
 }
 
 void ReadSerial(){
-  while(Serial.available() >= 4){
+  while(Serial.available() >= 4){ //change to if statement
     value = Serial.read();
-    if (bool(value) == true){
+    if (bool(value) == true){ //Just read whole serial and then check first boolean later
       for (int i = 0; i<3; i++){
           data[i] = Serial.read();
       }
